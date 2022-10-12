@@ -10,14 +10,47 @@
 
 ### Image 1: Python Dictionary Method
 
-![Python Dictionary Method]()
+![Python Dictionary Method](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/Resources/Python_dict_method.png)
 
-- Once I turned the backers information into a dictionary, I could then turn the information into a new DataFrame. I created the DataFrame from the dict_values I created from Image 1, and then set the columns to backer_id, cf_id, name, and email, Table 1. Then, I exported the DataFrame into a CSV file and saved it as [backers1.csv]().
+- Once I turned the backers information into a dictionary, I could then turn the information into a new DataFrame. I created the DataFrame from the dict_values I created from Image 1, and then set the columns to backer_id, cf_id, name, and email, Table 1. Then, I exported the DataFrame into a CSV file and saved it as [backers1.csv](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/backers1.csv).
 
 ### Table 1: Backers DataFrame
 
-![Backers DataFrame]()
+![Backers DataFrame](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/Resources/backers_dataframe.png)
 
+- Now I can transform and clean the data by formatting, splitting, converting data types, and restructuring the data to create a DataFrame that can be loaded into a PostgreSQL database as a CSV file. First I wanted to check the column types to make sure the cf_id was an integer. If it wasn't I wanted to make sure to convert the type, however, the cf_id was already an integer. 
+
+- In addition, I wanted to split the first and last names into their own columns. Therefore, I created two new columns, first_name and last_name, to put the names in, and used the str.split function on the name column. Once I split the names into first and last name columns, I dropped the name column, and re-organized the columns, Table 2. Then I exported the DataFrame as a CSV file, [backers.csv](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/backers.csv), so that I can load the data in my table schema in PostgreSQL.
+
+### Table 2: Cleaned Backers DataFrame
+
+![Cleaned Backers DataFrame]()
+
+- Before I could load the data in my table schema though, I need to create my table schema. First, I created an ERD to make sure the columns had the appropriate data type, primary key, and foreign keys. Then I saved the diagram as [crowdfunding_db_relationships.png](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/crowdfunding_db_relationships.png). 
+
+- Now, in PostegreSQL I can create my backers table and load my [backers.csv](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/backers.csv) file. I created my table by using the CREATE TABLE function in SQL and creating my column names and the appropriate schemas.
+
+CREATE TABLE "backers" (
+    
+    "backer_id" varchar   NOT NULL,
+	
+    "cf_id" int NOT NULL,
+    
+    "first_name" varchar(50)   NOT NULL,
+    
+    "last_name" varchar(50)   NOT NULL,
+    
+    "email" varchar(100)   NOT NULL,
+    
+    CONSTRAINT "pk_backers" PRIMARY KEY (
+    
+        "backer_id"));
+
+- Once the table was created, I could then upload my [backers.csv](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/backers.csv) file into the backers table. Now, I can run SQL Analysis. 
+
+- First I wanted to write a SQL query that retrievees the number of backer_counts in descending order for each "cf_id" for all the "live" campaigns. Then to confirm the results, I used the backers table to confirm the results from the campaign table. 
+
+- Next, I created a table that has the first name, last name, email, and the goal amount left to reach for all the live projects. As well as another table that contained the email address of each backer, their first name, last name, cf_id, company name, description, end date of the campaign, and the remaining amount of the campaign goal.  
 
 
 ## Results
