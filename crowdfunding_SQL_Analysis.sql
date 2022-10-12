@@ -24,7 +24,7 @@ SELECT contacts.first_name,
     contacts.last_name,
     contacts.email,
     (campaign.goal - campaign.pledged) AS amount_left
-INTO remain_amount
+INTO email_contacts_remaining_goal_amount
 FROM campaign
 INNER JOIN contacts
 ON (campaign.contact_id = contacts.contact_id)
@@ -34,7 +34,7 @@ ORDER BY (campaign.goal - campaign.pledged) DESC;
 
 -- Check the table
 
-SELECT * FROM remain_amount
+SELECT * FROM email_contacts_remaining_goal_amount
 
 -- 4. (5 pts)
 -- Create a table, "email_backers_remaining_goal_amount" that contains the email address of each backer in descending order, 
