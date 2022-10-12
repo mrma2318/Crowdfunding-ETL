@@ -50,7 +50,7 @@ CREATE TABLE "backers" (
 
 - First I wanted to write a SQL query that retrievees the number of backer_counts in descending order for each "cf_id" for all the "live" campaigns. Then to confirm the results, I used the backers table to confirm the results from the campaign table. 
 
-- Next, I created a table that has the first name, last name, email, and the goal amount left to reach for all the live projects. As well as another table that contained the email address of each backer, their first name, last name, cf_id, company name, description, end date of the campaign, and the remaining amount of the campaign goal. The code can be found in the [crowdfunding_SQL_Analysis.sql](https://github.com/mrma2318/Crowdfunding-ETL/blob/1132643c6754ef9875340911977ac03c1f89eeb5/crowdfunding_SQL_Analysis.sql). 
+- Next, I created a table that has the first name, last name, email, and the goal amount left to reach for all the live projects. As well as another table that contained the email address of each backer, their first name, last name, cf_id, company name, description, end date of the campaign, and the remaining amount of the campaign goal. The code can be found in the [crowdfunding_SQL_Analysis.sql](https://github.com/mrma2318/Crowdfunding-ETL/blob/a4732101e0b7c4920050f20f60d50941bd4ba8bc/crowdfunding_SQL_Analysis.sql). 
 
 ## Results
 - There are two conclusions you draw from the analysis. First, it's important to understand the ETL process. By studying the data and understanding what you are looking to accomplish, will assist you in the ETL process. If you don't extract, transform, and the clean the data correctly, it can lead to potential errors when you try to upload the data in PostgreSQL tables. 
