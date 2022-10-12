@@ -34,7 +34,7 @@ email varchar(100)
 
 backers
 -
-backer_id int PK
+backer_id varchar PK
 cf_id in FK >- campaign.cf_id
 first_name varchar(50)
 last_name varchar(50)
