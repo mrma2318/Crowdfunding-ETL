@@ -24,7 +24,7 @@
 
 ### Table 2: Cleaned Backers DataFrame
 
-![Cleaned Backers DataFrame]()
+![Cleaned Backers DataFrame](https://github.com/mrma2318/Crowdfunding-ETL/blob/1132643c6754ef9875340911977ac03c1f89eeb5/Resources/cleaned_backers.png)
 
 - Before I could load the data in my table schema though, I need to create my table schema. First, I created an ERD to make sure the columns had the appropriate data type, primary key, and foreign keys. Then I saved the diagram as [crowdfunding_db_relationships.png](https://github.com/mrma2318/Crowdfunding-ETL/blob/ccd874105225b61319ee4ead81bd3fd2e721baf0/crowdfunding_db_relationships.png). 
 
@@ -50,7 +50,9 @@ CREATE TABLE "backers" (
 
 - First I wanted to write a SQL query that retrievees the number of backer_counts in descending order for each "cf_id" for all the "live" campaigns. Then to confirm the results, I used the backers table to confirm the results from the campaign table. 
 
-- Next, I created a table that has the first name, last name, email, and the goal amount left to reach for all the live projects. As well as another table that contained the email address of each backer, their first name, last name, cf_id, company name, description, end date of the campaign, and the remaining amount of the campaign goal.  
-
+- Next, I created a table that has the first name, last name, email, and the goal amount left to reach for all the live projects. As well as another table that contained the email address of each backer, their first name, last name, cf_id, company name, description, end date of the campaign, and the remaining amount of the campaign goal. The code can be found in the [crowdfunding_SQL_Analysis.sql](https://github.com/mrma2318/Crowdfunding-ETL/blob/1132643c6754ef9875340911977ac03c1f89eeb5/crowdfunding_SQL_Analysis.sql). 
 
 ## Results
+- There are two conclusions you draw from the analysis. First, it's important to understand the ETL process. By studying the data and understanding what you are looking to accomplish, will assist you in the ETL process. If you don't extract, transform, and the clean the data correctly, it can lead to potential errors when you try to upload the data in PostgreSQL tables. 
+
+- The second conclusion you can draw from this analysis is the importance of understanding the relationship between multiple tables. Understanding the relationship between tables will assist you when you need to combine columns from different tables together. You have to know how to the join the tables together to get the information you need. 
